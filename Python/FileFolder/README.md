@@ -61,3 +61,4 @@
 ![image](https://user-images.githubusercontent.com/90443315/138585890-3b4bdfc7-39fd-43ec-8559-4a5258a7c1da.png)
 
 
+Сделаны все пункты
