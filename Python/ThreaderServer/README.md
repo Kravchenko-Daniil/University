@@ -35,7 +35,7 @@
 
 Пауза (остановка прослушивание порта) командами ключения и отключения stop listen start listen
 
-![image](https://user-images.githubusercontent.com/58771506/135754385-43794d43-9dba-495f-a8cd-8e81d74a08ce.png)
+
 
 У клиента ничего не происходит, он ожидает соединения, так как мы запретили подключения
 Если мы введем start listen то клиент сразу подключится
@@ -53,5 +53,7 @@
 
 
 Очистка файла идентификации выполняется командой clear file
+
+![image](https://user-images.githubusercontent.com/90443315/138599486-9e871b3c-9ba2-4818-ac5b-936a26b9ebfb.png)
 
 
