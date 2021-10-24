@@ -50,12 +50,8 @@
 
 Очистка логов очищается сам файл логов и консоль командой clear log
 
-![image](https://user-images.githubusercontent.com/58771506/135754484-d66fb4c9-94c3-4f73-a75d-b61a1fd6c30b.png)
 
-![image](https://user-images.githubusercontent.com/58771506/135754491-3e6e96b8-ad2b-4d57-8541-152b5bea44da.png)
 
 Очистка файла идентификации выполняется командой clear file
 
-![image](https://user-images.githubusercontent.com/58771506/135754513-9865535a-b75b-4834-8ff7-fe9d97d45905.png)
 
-![image](https://user-images.githubusercontent.com/58771506/135754522-a8a5f8f4-9953-464d-8365-a3525444c4fb.png)
