@@ -33,6 +33,7 @@
 ![image](https://user-images.githubusercontent.com/58771506/143503718-538a82eb-4cc2-48c2-8c7a-aeee775c1ce6.png)
 
 Ошибка 404 так как такого файла нет
+
 6. Сервер должен работать в многопоточном режиме.
 
 ![image](https://user-images.githubusercontent.com/58771506/143503736-a589f98d-78ea-4cfa-9d30-3267809f7791.png)
