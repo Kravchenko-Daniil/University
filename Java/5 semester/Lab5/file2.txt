@@ -1,0 +1,10 @@
+apple: 1
+orange: 2
+purple: 3
+house: 4
+work: 5
+computer: 6
+lake: 7
+people: 8
+green: 9
+red: 10
