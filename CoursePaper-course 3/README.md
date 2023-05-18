@@ -1,4 +1,4 @@
-Machine learning course paper
+# Machine learning
 
 Курсовая работа, реализовать классификатор паролей по стойкосте к взлому
 
