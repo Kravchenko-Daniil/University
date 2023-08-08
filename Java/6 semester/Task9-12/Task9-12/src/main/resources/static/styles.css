@@ -1,0 +1,26 @@
+.navbar-nav a:hover {
+    background-color: dimgrey !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.diagram-container {
+    min-height: 100px;
+    max-height: 50vh;
+    display: flex;
+    padding: 10px;
+    flex: 1;
+}
+
+.main-container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.row  {
+    margin-left: 0;
+    margin-right: 0;
+}

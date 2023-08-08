@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+
+</head>
+
+<style>
+    li {
+        list-style-type: none;
+    }
+</style>
+
+<body>
+
+<div style="display: flex; flex-direction: column">
+    <input type="text" style="margin: auto; margin-top: 5px; width: 50%;" class="form-control" id="left" placeholder="Write the left border">
+    <input type="text" style="margin: auto; margin-top: 5px; width: 50%;" class="form-control" id="right" placeholder="Write the right border">
+    <button style="margin: auto; margin-top: 5px; width: 40%; " onclick="setValues()">Calculate</button>
+    <div id="dv" style="display:flex; justify-content:center;"></div>
+</div>
+
+
+<script>
+    function median(values){
+        if(values.length === 0) throw new Error("No inputs");
+
+        values.sort(function(a,b){
+            return a-b;
+        });
+
+        var half = Math.floor(values.length / 2);
+
+        if (values.length % 2)
+            return values[half];
+
+        return (values[half - 1] + values[half]) / 2.0;
+    }
+
+    function clearContent(elementID) {
+            document.getElementById(elementID).innerHTML = "";
+        }
+
+    let setValues = () => {
+        clearContent("dv")
+
+        let left = Number(document.getElementById("left").value);
+        let right = Number(document.getElementById("right").value);
+        let newDiv = document.createElement("div");
+        newDiv.id = "list";
+        let listElement = document.createElement('ol');
+        newDiv.appendChild(listElement)
+        let array = [];
+        for(let i=0; i < 30; i++){
+            let newItem = document.createElement('li');
+            array[i] = Math.floor(Math.random() * (right-left)+left);
+            newItem.innerHTML = ""+array[i];
+            listElement.appendChild(newItem);
+        }
+
+        let maxDiv = document.createElement("div");
+        maxDiv.innerHTML = "Max: " + Math.max(...array);
+        newDiv.appendChild(maxDiv);
+
+        let minDiv = document.createElement("div");
+        minDiv.innerHTML = "Min: " + Math.min(...array);
+        newDiv.appendChild(minDiv);
+
+        let medianDiv = document.createElement("div");
+        medianDiv.innerHTML = "Median: " + median(array);
+        newDiv.appendChild(medianDiv);
+
+        document.getElementById("dv").appendChild(newDiv);
+    }
+
+</script>
+
+</body>
+</html>

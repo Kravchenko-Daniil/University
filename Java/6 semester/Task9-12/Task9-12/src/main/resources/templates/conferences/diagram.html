@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagram</title>
+
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"
+          rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+    <link th:href="@{/styles.css}" rel="stylesheet">
+</head>
+<body>
+
+<div class="main-container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+        <div class="container-fluid" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: white; font-size: 20px; margin-right: 20px;" th:href="@{/}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="margin-top:5px; " th:href="@{/conferences/main}">All conferences</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="margin-top:5px; " th:href="@{/conferences/conference}">Conference</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="margin-top:5px; color: white;" th:href="@{/conferences/diagram}">Diagram</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+<div class="diagram-container" style="weight: 600px; height: 700px; margin-top: 150px;" id="bar-plot" data-colid="3"></div>
+</div>
+
+
+<script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.js"></script>
+
+<script  type="text/javascript" th:inline="javascript">
+    let dates = {}
+
+let conferences = [[${conferences}]]
+
+conferences.forEach(conference => {
+    const date = conference.date;
+    if (date in dates) {
+        dates[date] += 1;
+    } else {
+        dates[date] = 1;
+    }
+});
+
+var myCharts=echarts.init(document.getElementById('bar-plot'));
+window.addEventListener('resize', function() {
+    myCharts.resize();
+});
+
+myCharts.setOption({
+    color: ['#3398DB'],
+    // Установить заголовок
+    title:{
+        text:"Count by day"
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // Индикатор координатной оси, триггер оси координат действителен
+            type : 'shadow'        // по умолчанию прямой
+        }
+    },
+    legend: {
+        data: ['Count']
+    },
+    xAxis : {
+        data :  Object.keys(dates),
+    },
+    yAxis : {
+
+    },
+    series : [
+        {
+            name:'Count',
+            type:'bar',
+            data:Object.values(dates),
+            barWidth: '60%',
+            itemStyle: {
+                normal: {
+                    label: {
+                        show: true,       // Открываем дисплей
+                        position: 'top',  // Показать выше
+                        textStyle: {      // Числовой стиль
+                            color: 'black',
+                            fontSize: 12
+                        }
+                    }
+                }
+            }
+        }
+    ]
+});
+
+
+</script>
+
+
+</body>
+</html>
